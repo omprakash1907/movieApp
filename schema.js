@@ -3,19 +3,19 @@ mongoose.connect('mongodb://localhost:27017/movieApp')
 .then(() => console.log('Connected!'));
 
 const ProductSchema = new mongoose.Schema({
-    bookid: {
-        type: Number,
-        required: true,
-    },
     title: {
         type: String,
         required: true,
     },
-    booktype: {
+    desc: {
         type: String,
         required: true,
     },
-    stock: {
+    genre: {
+        type: String,
+        required: true,
+    },
+    image: {
         type: Number,
         required: true,
     },
@@ -23,7 +23,7 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    publishdate: {
+    releasedate: {
         type: Date,
         required: true,
     },

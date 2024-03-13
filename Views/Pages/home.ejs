@@ -1,10 +1,23 @@
 <%- include('../Partials/Header')%>
-    <div class="container ">
-        <div class="d-flex align-items-center justify-content-between ">
-            <h1 class="col-6">Welcome To home Page</h1>
-            <div class="col-6">
-                <img src="/assets/image/Bookshop-pana.png" alt="book" class="img-fluid" height="500">
-            </div>
-        </div>
+    <div class="vh-100">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+            effect="fade" navigation="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" >
+            <swiper-slide>
+                <img src="https://timesofindia.indiatimes.com/photo/101561141.jpeg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="https://assets-in.bmscdn.com/discovery-catalog/events/et00027635-xjcypcascm-landscape.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="https://assets-in.bmscdn.com/discovery-catalog/events/et00015973-yqgymjxzrj-landscape.jpg" class="img-fluid"/>
+            </swiper-slide>
+            <swiper-slide>
+                <img src="https://wallpapers.com/images/featured/kgf-4k-6fypj1jk472hjau5.jpg    " />
+            </swiper-slide>
+        </swiper-container>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+
     <%- include('../Partials/Footer')%>
