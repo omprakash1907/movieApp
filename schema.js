@@ -1,39 +1,32 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/movieApp')
-.then(() => console.log('Connected!'));
+const mongoose = require('mongoose')
 
-const ProductSchema = new mongoose.Schema({
-    title: {
+const movieSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
     },
-    desc: {
+    description :{
         type: String,
+        required: true,
+    },
+    year: {
+        type: Number,
         required: true,
     },
     genre: {
         type: String,
         required: true,
     },
-    image: {
-        type: Number,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-    },
-    releasedate: {
-        type: Date,
-        required: true,
-    },
-    author: {
+    rating: {
         type: String,
         required: true,
-    }
-}, {timestamps : true})
+    },
+    file: {
+        type: String,
+        required: true,
+    },
+}, { timestamps: true })
 
-const ProductModel = mongoose.model('Omprakash_movie',ProductSchema)
+const movieModel = mongoose.model('omprakash_movie', movieSchema);
 
-module.exports = { ProductModel }
-
+module.exports = { movieModel }
