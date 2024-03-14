@@ -9,6 +9,8 @@ const { error } = require('console');
 const { movieModel } = require('./schema');
 
 app.set('view engine', 'ejs');
+app.use(express.static('upload'));
+app.use(express.static('public'));
 
 //-----------------multer
 const storage = multer.diskStorage({
@@ -16,7 +18,7 @@ const storage = multer.diskStorage({
         return cb(null, './upload')
     },
     filename :function(req,file,cb){
-        return cb(null, file.originalname)
+        return cb(null, Date.now() + file.originalname)
         console.log(file)
     }
 })
@@ -32,6 +34,7 @@ app.get('/upload', function(req,res){
 })
 
 app.post('/upload', function (req, res) {
+    console.log(req.body)
     upload(req, res, async function (err) {
         if (err) {
             console.log(err);
@@ -43,12 +46,12 @@ app.post('/upload', function (req, res) {
         }
 
         const details = {
-            title: req.body.title,
+            name: req.body.name,
             description: req.body.description,
             year: req.body.year,
             genre: req.body.genre,
             rating: req.body.rating,
-            image: req.file.originalname
+            file: req.file.originalname
         };
 
         try {

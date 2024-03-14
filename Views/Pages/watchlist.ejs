@@ -1,15 +1,43 @@
 <%- include('../Partials/Header')%>
-<% movies.forEach((movie)=> {   console.log(movie); %>
-    <div class="card" style="width: 18rem;">
-        <img src="/upload/<%= movie.file %>" class="card-img-top" alt="...">
+  <% movies.forEach((movie)=> { console.log(movie); %>
+    <!-- <div class="card" style="width: 18rem;">
+      <img src="/<%= movie.file %>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= movie.name %></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text"><%= movie.description %></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+      </div> -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="/<%= movie.file %>" class="card-img-top" alt="...">
+        </div>
+        <div class="flip-card-back">
+          <p class="title">
+            <%= movie.name %>
+          </p>
+          <p>
+            <%= movie.description %>
+          </p>
+          <p>
+            <% const publishDate=new Date(movie.year); const day=publishDate.getDate().toString().padStart(2, '0'
+              ); const month=(publishDate.getMonth() + 1).toString().padStart(2, '0' ); // Month is zero-based const
+              year=publishDate.getFullYear(); const formattedPublishDate=`${day}/${month}/${year}`; %>
+              <%= formattedPublishDate %>
+          </p>
+          <p>
+            <%= movie.genre %>
+          </p>
+          <p>
+            <%= movie.rating %>
+          </p>
+        </div>
       </div>
-  
-   
+    </div>
+
     <% }) %>
 
-  <%- include('../Partials/Footer')%>
+
+
+      <%- include('../Partials/Footer')%>
