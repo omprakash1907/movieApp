@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/movieApp')
+mongoose.connect('mongodb+srv://omprakashkjat19:Mp6RjeJoLEx9SvC3@test.fkf1bxq.mongodb.net/myMoviedb')
 .then(() => console.log('Connected!'));
 const app = express()
 const multer  = require('multer')
