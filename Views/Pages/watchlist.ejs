@@ -1,40 +1,44 @@
 <%- include('../Partials/Header')%>
   <div class="container mt-4">
     <div class="d-flex  align-items-center flex-wrap  ">
-      <% movies.forEach((movie)=> { console.log(movie); %>
+      <% movies.forEach((movie,id)=> { console.log(movie); %>
         <div class="col-3">
           <div class="flip-card ">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <img src="/<%= movie.file %>" class="card-img-top" alt="...">
               </div>
-              <div class="flip-card-back p-3 ">
-                <p class="title fs-1 text-start ">
+              <div class="flip-card-back px-4 py-3 justify-content-between ">
+                <div>
+                <p class="title fs-1 text-start mb-2 lh-sm ">
                   <%= movie.name %>
                 </p>
-                <p>
+                <p class="lh-sm  text-start ">
+                  <%= movie.description %>
+                </p>
+                <div class="d-flex fw-bold mb-2 ">
+                <p class="mb-0 ">
                   <% const publishDate=new Date(movie.year); const day=publishDate.getDate().toString().padStart(2, '0'
                     ); const month=(publishDate.getMonth() + 1).toString().padStart(2, '0' ); // Month is zero-based
-                    const year=publishDate.getFullYear(); const formattedPublishDate=`${day}/${month}/${year}`; %>
+                    const year=publishDate.getFullYear(); const formattedPublishDate=`${year}`; %>
                     <%= formattedPublishDate %>
-                </p>
-                <div class="d-flex">
-                  <p>
+                </p><span class="mx-2 ">/</span>
+                  <p class="mb-0 " >
                     <%= movie.genre %>
                   </p>
-                  <p>
+                </div>
+                  <p class="text-start ">
                     <%= movie.rating %>
                   </p>
                 </div>
-                <p class="lh-sm mt-3">
-                  <%= movie.description %>
-                </p>
+                <div>
+                  <a href="/deleteData/<%= movie._id%>" class="btn btn-dark text-white mb-2 d-block  " >Delete</a>
+                  <a href="/editData/<%= movie._id%>" class="btn btn-dark text-white d-block  " >Edit</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-
         <% }) %>
     </div>
   </div>
